@@ -1,0 +1,14 @@
+# 1. Usar la imagen base oficial de AWS para Python en Lambda
+FROM public.ecr.aws/lambda/python:3.10
+
+# 2. Copiar los requerimientos primero
+COPY requirements.txt .
+
+# 3. Instalar las dependencias
+RUN pip install -r requirements.txt
+
+# 4. Copiar el código de tu aplicación
+COPY app.py .
+
+# 5. Establecer el comando (usando 'mangum' como dijiste)
+CMD ["app.mangum"]
